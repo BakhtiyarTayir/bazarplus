@@ -50,6 +50,7 @@ function bazarplus_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'bazarplus' ),
+			'footer-menu' => esc_html__( 'Footer menu', 'bazarplus' ),
 		)
 	);
 
@@ -114,6 +115,7 @@ function bazarplus_content_width() {
 }
 add_action( 'after_setup_theme', 'bazarplus_content_width', 0 );
 
+
 /**
  * Register widget area.
  *
@@ -131,23 +133,44 @@ function bazarplus_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer about', 'bazarplus' ),
+			'id'            => 'footer-about',
+			'description'   => esc_html__( 'Footer about', 'bazarplus' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer right', 'bazarplus' ),
+			'id'            => 'footer-right',
+			'description'   => esc_html__( 'Footer right', 'bazarplus' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer copyright', 'bazarplus' ),
+			'id'            => 'footer-copyright',
+			'description'   => esc_html__( 'Footer copyright', 'bazarplus' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
 }
 add_action( 'widgets_init', 'bazarplus_widgets_init' );
 
-/**
- * Enqueue scripts and styles.
- */
-function bazarplus_scripts() {
-	wp_enqueue_style( 'bazarplus-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'bazarplus-style', 'rtl', 'replace' );
-
-	wp_enqueue_script( 'bazarplus-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'bazarplus_scripts' );
+// Add styles and Scripts
+require get_template_directory() . '/inc/styles-scripts.php';
 
 /**
  * Implement the Custom Header feature.
