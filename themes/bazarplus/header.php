@@ -23,6 +23,76 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+
+
+<header class="main-header header-bar header-fixed header-app header-bar-detached">
+        <div class="ec-header-bottom d-none d-lg-block">
+            <div class="container position-relative">
+                <div class="row">
+                    <div class="ec-flex">
+                        <!-- Ec Header Logo Start -->
+                        <div class="align-self-center">
+                            <div class="header-logo">
+                                <?php the_custom_logo(); ?>
+                            </div>
+                        </div>
+                        <!-- Ec Header Logo End -->
+
+                        <!-- Ec Header Search Start -->
+                        <div class="align-self-center">
+                            <div class="header-search">
+                              <form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ) ?>" class="ec-btn-group-form" >
+									<input autocomplete="off" type="text" class="form-control" name="s" id="s"  value="<?php echo get_search_query() ?>" placeholder="Поиск">
+									<button id="searchsubmit" type="submit" class="btn-submit"><i class="fa fa-search"></i></button>
+								</form>
+                            </div>
+                        </div>
+                        <!-- Ec Header Search End -->
+
+                        <!-- Ec Header Button Start -->
+                        <div class="align-self-center">
+                            <div class="ec-header-bottons">
+                                <div class="top-lang  hidden sm:block">
+                                    <div class="top-lang-item">
+                                        <div class="lang-icon"><i class="fa fa-globe"></i></div>
+                                        <div class="locales hidden-xs language-menu">
+                                            <?php pll_the_languages(array('dropdown'=>1, 'hide_if_empty'=>0)); ?>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Header User Start -->
+                                <a href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>" class="ec-header-btn ec-side-toggle">
+                                    <div class="header-icon"><i class="fa fa-user"></i></div>
+                                </a>
+                                <!-- Header User End -->
+
+                                <!-- Header Cart Start -->
+                                <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="ec-header-btn ec-side-toggle">
+                                    <div class="header-icon"><i class="fa fa-shopping-cart"></i></div>
+                                    <span class="ec-header-count ec-cart-count cart-count-lable"><?php echo WC()->cart->get_cart_contents_count() ?></span>
+                                </a>
+                                <!-- Header Cart End -->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-lg-none d-block">
+            <div class="mobile_el">
+                <a data-bs-toggle="offcanvas" data-bs-target="#menu-main" href="#"><i class="fa fa-bars"></i></a>
+                <a href="#" class="logo_image"><img src="images/color.svg"></a>
+                <a href="#" class="search_button" data-bs-toggle="modal" data-bs-target="#search-modal"><i
+                        class="fa fa-search"></i></a>
+            </div>
+        </div>
+    </header>
+
+
+
+
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'bazarplus' ); ?></a>
 

@@ -25,7 +25,8 @@
                     <div class="col-md-12 col-sm-12 col-xs-12 social-links">
                         <?php wp_nav_menu( [
 							'theme_location' => 'footer-menu',
-							'items_wrap'     => '<ul class="main-menu social-nav">%3$s</ul>'
+							'items_wrap'     => '<ul class="main-menu social-nav">%3$s</ul>',
+                            'add_li_class'  => 'menu-item menu-item-type-post_type menu-item-object-page'
 						] ); ?>
                     </div>
 

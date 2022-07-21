@@ -11595,6 +11595,7 @@ ul.social-nav {
     text-align: left;
 }
 .header-logo img {
+    height: auto;
     width: 210px;
 }
 .header-search {
@@ -11778,6 +11779,7 @@ ul.social-nav {
     min-height: 55px;
     padding: 0;
     box-shadow: 0 8px 24px 0 rgb(0 0 0 / 8%);
+    /* not working */
     backdrop-filter: blur(100px);
     -webkit-backdrop-filter: blur(100px);
     padding-top: calc((constant(safe-area-inset-top))) !important;
