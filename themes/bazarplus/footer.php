@@ -26,7 +26,7 @@
                         <?php wp_nav_menu( [
 							'theme_location' => 'footer-menu',
 							'items_wrap'     => '<ul class="main-menu social-nav">%3$s</ul>',
-                            'add_li_class'  => 'menu-item menu-item-type-post_type menu-item-object-page'
+                           
 						] ); ?>
                     </div>
 
