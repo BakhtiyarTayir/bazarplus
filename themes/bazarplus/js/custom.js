@@ -15,27 +15,7 @@ jQuery('.splide__list').owlCarousel({
     dots: false,
     nav: false
 })
-jQuery('.collections').owlCarousel({
-    nav: !0,
-    dots: !1,
-    margin: 30,
-    loop: !0,
-    touchDrag: !0,
-    navText: ['<span aria-label="Previous">‹</span>', '<span aria-label="Next">›</span>'],
-    responsive: {
-        0: {
-            items: 2,
-            mouseDrag: !0,
-            stagePadding: 25
-        },
-        500: {
-            items: 2
-        },
-        700: {
-            items: 4
-        }
-    }
-})
+
 
 jQuery('.cat-slider').owlCarousel({
     margin: 10,

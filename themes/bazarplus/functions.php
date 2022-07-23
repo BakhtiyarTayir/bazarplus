@@ -169,6 +169,72 @@ function bazarplus_widgets_init() {
 }
 add_action( 'widgets_init', 'bazarplus_widgets_init' );
 
+// Register Custom Taxonomy
+function ess_custom_taxonomy_Item()  {
+
+$labels = array(
+	'name'                       => __('Stores'),
+	'singular_name'              => __('Store'),
+	'menu_name'                  => __('Stores'),
+	'all_items'                  => __('All Stores'),
+	'parent_item'                => __('Parent Store'),
+	'parent_item_colon'          => __('Parent Store:'),
+	'new_item_name'              => __('New Store Name'),
+	'add_new_item'               => __('Add New Store'),
+	'edit_item'                  => __('Edit Store'),
+	'update_item'                => __('Update Store'),
+	'separate_items_with_commas' => __('Separate Store with commas'),
+	'search_items'               => __('Search Stores'),
+	'add_or_remove_items'        => __('Add or remove Stores'),
+	'choose_from_most_used'      => __('Choose from the most used Stores'),
+);
+$args = array(
+	'labels'                     => $labels,
+	'hierarchical'               => true,
+	'public'                     => true,
+	'show_ui'                    => true,
+	'show_admin_column'          => true,
+	'show_in_nav_menus'          => true,
+	'show_tagcloud'              => true,
+);
+register_taxonomy( 'store', 'product', $args );
+
+}
+
+add_action( 'init', 'create_taxonomy' );
+function create_taxonomy(){
+
+$labels = array(
+	'name'                       => __('Store types'),
+	'singular_name'              => __('Store type'),
+	'menu_name'                  => __('Store types'),
+	'all_items'                  => __('All Store types'),
+	'parent_item'                => __('Parent Store type'),
+	'parent_item_colon'          => __('Parent Store:'),
+	'new_item_name'              => __('New Store type Name'),
+	'add_new_item'               => __('Add New Store type'),
+	'edit_item'                  => __('Edit Store type'),
+	'update_item'                => __('Update Store type'),
+	'separate_items_with_commas' => __('Separate Store type with commas'),
+	'search_items'               => __('Search Store types'),
+	'add_or_remove_items'        => __('Add or remove Store types'),
+	'choose_from_most_used'      => __('Choose from the most used Store types'),
+);
+$args = array(
+	'labels'                     => $labels,
+	'hierarchical'               => true,
+	'public'                     => true,
+	'show_ui'                    => true,
+	'show_admin_column'          => true,
+	'show_in_nav_menus'          => true,
+	'show_tagcloud'              => true,
+);
+register_taxonomy( 'store-type', 'product', $args );
+}
+
+
+add_action( 'init', 'ess_custom_taxonomy_item');
+
 // Add styles and Scripts
 require get_template_directory() . '/inc/styles-scripts.php';
 
