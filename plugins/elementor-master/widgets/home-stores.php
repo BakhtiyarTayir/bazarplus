@@ -136,7 +136,7 @@ class HomeStores extends Widget_Base {
 								'hierarchical' => 1,
 								'exclude'      => '',
 								'include'      => '',
-								'number'       => 0,
+								'number'       => 6,
 								'pad_counts'   => false,
 								// полный список параметров смотрите в описании функции http://wp-kama.ru/function/get_terms
 							] );
