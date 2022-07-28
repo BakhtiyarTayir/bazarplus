@@ -235,6 +235,60 @@ register_taxonomy( 'store-type', 'product', $args );
 
 add_action( 'init', 'ess_custom_taxonomy_item');
 
+// remove text from the_title_archive
+
+add_filter('get_the_archive_title', function ($title) {
+    if (is_category()) {
+        $title = single_cat_title('', false);
+    } elseif (is_tag()) {
+        $title = single_tag_title('', false);
+    } elseif (is_author()) {
+        $title = '<span class="vcard">' . get_the_author() . '</span>';
+    } elseif (is_tax()) { //for custom post types
+        $title = sprintf(__('%1$s'), single_term_title('', false));
+    } elseif (is_post_type_archive()) {
+        $title = post_type_archive_title('', false);
+    }
+    return $title;
+});
+
+add_filter('woocommerce_currency_symbol', 'add_my_currency_symbol', 10, 2);
+ 
+function add_my_currency_symbol( $currency_symbol, $currency ) {
+ 
+     switch( $currency ) {
+ 
+         case 'UZS': $currency_symbol = 'сум'; break;
+ 
+     }
+ 
+     return $currency_symbol;
+ 
+}
+
+// The defined taxonomy here in the function $taxonomy argument is for WooCommerce Store
+function get_product_categories_from_a_product_brand( $brand_term_slug, $taxonomy = 'store' ) {
+    global $wpdb;
+
+    return $wpdb->get_results( "
+        SELECT t1.*
+        FROM    {$wpdb->prefix}terms t1
+        INNER JOIN {$wpdb->prefix}term_taxonomy tt1
+            ON  t1.term_id = tt1.term_id 
+        INNER JOIN {$wpdb->prefix}term_relationships tr1
+            ON  tt1.term_taxonomy_id = tr1.term_taxonomy_id
+        INNER JOIN {$wpdb->prefix}term_relationships tr2
+            ON  tr1.object_id = tr2.object_id
+        INNER JOIN {$wpdb->prefix}term_taxonomy tt2
+            ON  tr2.term_taxonomy_id = tt2.term_taxonomy_id         
+        INNER JOIN {$wpdb->prefix}terms t2
+            ON  tt2.term_id = t2.term_id
+        WHERE tt1.taxonomy = 'product_cat'
+        AND tt2.taxonomy = '$taxonomy'
+        AND  t2.slug = '$brand_term_slug'
+    " );
+}
+
 // Add styles and Scripts
 require get_template_directory() . '/inc/styles-scripts.php';
 
@@ -271,3 +325,52 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+// Hook in
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+
+// Our hooked in function - $fields is passed via the filter!
+function custom_override_checkout_fields( $fields ) {
+	unset($fields['billing']['billing_company']);
+	unset($fields['billing']['billing_address_2']);
+	unset($fields['billing']['billing_postcode']);	
+	unset($fields['billing']['billing_city']);
+	unset($fields['billing']['billing_state']);
+	unset($fields['billing']['billing_last_name']);
+	unset($fields['billing']['billing_email']);
+	return $fields;
+}
+
+
+add_filter( 'woocommerce_billing_fields' , 'custom_override_woocommerce_billing_fields' );
+// Our hooked in function - $address_fields is passed via the filter!
+function custom_override_woocommerce_billing_fields( $address_fields ) {
+	$address_fields['billing_email']['required'] = false;
+
+	
+	return $address_fields;
+};
+
+add_filter('woocommerce_checkout_fields', function($fields) {
+	
+
+	$fields['billing']['billing_first_name']['priority'] = 10;
+	$fields['billing']['billing_phone']['priority'] = 12;
+
+	return $fields;
+});
+
+add_filter('woocommerce_checkout_fields', function($address_fields) {
+	$address_fields['billing']['billing_phone']['class'] = ["form-row-first"];
+	return $address_fields;
+});
+
+add_filter( 'woocommerce_checkout_fields', 'misha_no_phone_validation' );
+ 
+function misha_no_phone_validation( $woo_checkout_fields_array ) {
+	unset( $woo_checkout_fields_array['billing']['billing_phone']['validate'] );
+	unset( $woo_checkout_fields_array['billing']['billing_address_1']['validate'] );
+	return $woo_checkout_fields_array;
+}
+
+add_filter( 'woocommerce_account_menu_items', 'custom_remove_downloads_my_account', 999 );

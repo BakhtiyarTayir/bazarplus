@@ -1,3 +1,84 @@
+jQuery('body').on('click', '.quantity .quantity-plus', function (e) {
+
+    var _this = jQuery(this).closest('.quantity').find('input.qty'),
+
+        _value = parseInt(_this.val()),
+
+        _max = parseInt(_this.attr('max')),
+
+        _step = parseInt(_this.data('step')),
+
+        _value = _value + _step;
+
+    if (_max && _value > _max) {
+
+        _value = _max;
+
+    }
+
+    _this.val(_value);
+
+    _this.trigger("change");
+
+    e.preventDefault();
+
+});
+
+jQuery(document).on('change', function () {
+
+    jQuery('.quantity').each(function () {
+
+        var _this = jQuery(this).find('input.qty'),
+
+            _value = _this.val(),
+
+            _max = parseInt(_this.attr('max'));
+
+        if (_value > _max) {
+
+            jQuery(this).find('.quantity-plus').css('pointer-events', 'none')
+
+        } else {
+
+            jQuery(this).find('.quantity-plus').css('pointer-events', 'auto')
+
+        }
+
+    })
+
+});
+
+jQuery('body').on('click', '.quantity .quantity-minus', function (e) {
+
+    var _this = jQuery(this).closest('.quantity').find('input.qty'),
+
+        _value = parseInt(_this.val()),
+
+        _min = parseInt(_this.attr('min')),
+
+        _step = parseInt(_this.data('step')),
+
+        _value = _value - _step;
+
+    if (_min && _value < _min) {
+
+        _value = _min;
+
+    }
+
+    if (!_min && _value < 0) {
+
+        _value = 0;
+
+    }
+
+    _this.val(_value);
+
+    _this.trigger("change");
+
+    e.preventDefault();
+
+});
 setTimeout(function () {
     var preload = document.getElementById("preloader");
     if (preload) {
@@ -14,50 +95,7 @@ jQuery('.splide__list').owlCarousel({
     autoplayTimeout: 3000,
     dots: false,
     nav: false
-})
-
-
-jQuery('.cat-slider').owlCarousel({
-    margin: 10,
-    autoWidth: !0,
-    dragEndSpeed: 600,
-    nav: !0,
-    dots: !1,
-    slideBy: 2,
-    navText: ['<span aria-label="Previous">‹</span>', '<span aria-label="Next">›</span>'],
-    slideTransition: "ease",
-    responsive: {
-        1200: {
-            margin: 20,
-            items: 9
-        },
-        1024: {
-            items: 8,
-            margin: 20
-        },
-        992: {
-            items: 7,
-            margin: 20
-        },
-        600: {
-            margin: 25,
-            items: 6,
-            nav: !1
-        },
-        480: {
-            margin: 15,
-            items: 3,
-            autoWidth: !0,
-            nav: !1
-        },
-        320: {
-            margin: 10,
-            items: 2,
-            autoWidth: !0,
-            nav: !1
-        }
-    }
-})
+});
 
 jQuery('.product_categories').owlCarousel({
     margin: 10,
@@ -99,7 +137,7 @@ jQuery('.product_categories').owlCarousel({
             nav: !1
         }
     }
-})
+});
 
 
 
@@ -116,16 +154,16 @@ jQuery(window).scroll(function () {
 
 jQuery(window).scroll(function () {
     var scrollTop = jQuery(window).scrollTop();
-    if(jQuery('.column_column__1Vkn8').length){
+    if (jQuery('.column_column__1Vkn8').length) {
         var offtop = jQuery('.column_column__1Vkn8').offset().top;
         if (scrollTop > offtop) {
             jQuery('.bOkHCz').addClass('fixed-bar');
         } else {
             jQuery('.bOkHCz').removeClass('fixed-bar');
-    
+
         }
     }
-    
+
 });
 
 function scrollNav() {

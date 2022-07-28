@@ -100,13 +100,6 @@ class PopularProducts extends Widget_Base {
 			)
 		);
 
-		$this->add_control(
-			'money_symbol',
-			array(
-				'label'   => __( 'Money symbol', 'elementor-master' ),
-				'type'    => Controls_Manager::TEXT,
-			)
-		);
 
 		$this->end_controls_section();
 	}
@@ -153,7 +146,7 @@ class PopularProducts extends Widget_Base {
 							<div class="styles_product__172_i">
 								<div class="styles_product__name__71XoP"><?php the_title(); ?></div>
 								<div class="styles_price__1Opbu">
-									<div class="styles_price__current__2CWVb"><?php echo $product->get_price(); echo wp_kses( $settings['money_symbol'], array() ); ?></div>
+									<div class="styles_price__current__2CWVb"><?php echo $product->get_price(); echo ' '; echo get_woocommerce_currency_symbol(); ?></div>
 								</div>
 								<div class="styles_store__1ORji"><?php echo $store_name[0]->name; ?></div>
 								<div class="styles_logo__tV4bE"><img src="<?php echo z_taxonomy_image_url($store_name[0]->term_id); ?>"></div>

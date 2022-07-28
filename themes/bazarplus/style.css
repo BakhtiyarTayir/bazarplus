@@ -93,6 +93,10 @@ body.main .main-wrapper {
     padding-top: 45px
 }
 
+a {
+    text-decoration: none !important;
+}
+
 .inner-container {
     max-width: 600px;
     margin-left: auto;
@@ -1518,6 +1522,9 @@ a.cat-nav-item:hover span {
         right: 0;
         left: 0;
         bottom: 0
+    }
+    footer.page-footer {
+        display: none;
     }
 }
 
@@ -11899,9 +11906,6 @@ a:hover{
     overflow-x: hidden;
     transition: all 250ms ease;
     z-index: 2;
-    padding-bottom: 60px;
-    padding-bottom: calc(60px + (constant(safe-area-inset-bottom))*1.1);
-    padding-bottom: calc(60px + (env(safe-area-inset-bottom))*1.1);
 }
 .header-clear-medium {
     padding-top: calc(55px + 45px);
@@ -12184,7 +12188,7 @@ a{
 .catbar{
     flex: 0 0 auto;
     width: 95%;
-    padding: 0;
+    padding: 0 !important;
 }
 .fixed-bar{
     position: fixed;
@@ -12213,6 +12217,7 @@ a{
 }
 .prod-image img{
     width: 110px;
+    height: 110px;
     border-radius: 8px;
     margin-right: 1rem;
 }
@@ -12672,4 +12677,98 @@ form.cart{
 .single_add_to_cart_button{
     height: 43px;
     padding: 0 37px;
+}
+.sc-crXcEl.cCNGhG a {
+    text-decoration: none;
+}
+img.wp-post-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+
+/* Cart button styles */
+.qib-button.qib-button-wrapper {
+    margin-right: 20px;
+    margin-bottom: 15px;
+    min-width: 150px;
+}
+
+.qib-button.qib-button-wrapper {
+    border-radius: 8px;
+    background: #f3f3f3;
+    width: min-content;
+    display: inline-block !important;
+    position: relative;
+}
+
+button.minus.qib-button {
+    left: 1rem;
+    border-color: #1275ba;
+    color: #1275ba;
+    border-radius: 50px;
+}
+
+button.plus.qib-button {
+    right: 1rem;
+    border-color: #4CAF50;
+    color: #4CAF50;
+    border-radius: 50px;
+}
+
+.quantity.wqpmb_quantity {width: min-content;}
+
+.wqpmb_input_text .input-text .qty .text {
+    background: 0 0;
+    width: 100%;
+    outline: 0 !important;
+    border: none;
+    height: 43px;
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+    padding: 0 40px;
+    border-radius: 22px;
+}
+
+.qib-button.qib-button-wrapper.quantity {
+    margin: 0 15px 0 0;
+    padding: 10px;
+}
+
+button.minus.qib-button {
+    border: 2px solid;
+}
+
+button.plus.qib-button {
+    border: 2px solid;
+}
+
+.wqpmb_input_text.input-text.qty.text {
+    background: 0 0 !important;
+    width: 100%;
+    outline: 0 !important;
+    border: none !important;
+    font-size: 16px !important;
+    color: #000;
+    text-align: center !important;
+    background: transparent !important;
+    padding: 0 40px !important;
+    border-radius: 22px;
+}
+
+.quantity.wqpmb_quantity {
+    width: 100%;
+    outline: 0 !important;
+    border: none !important;
+    font-size: 16px !important;
+    color: #000;
+    text-align: center !important;
+    border-radius: 22px;
+}
+
+table.shop_table.woocommerce-checkout-review-order-table thead {
+    display: none;
 }

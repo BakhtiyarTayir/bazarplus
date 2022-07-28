@@ -126,6 +126,7 @@
         right: 0.5rem;
     }
     .prod-image img {
+        height: auto;
         width: 60px;
         margin-right: .5rem;
     }
@@ -154,6 +155,12 @@
 
     .partners-name span {
         max-width: 50%
+    }
+    .page-main-content{
+        padding: 0px;
+    }
+    h1.page-title {
+        display: none;
     }
 
     .tabs .indicator {
@@ -409,7 +416,7 @@
         height: 200px;
     }
     #footer-bar{
-        display: flex;
+        display: flex !important;
     }
     .header-clear-medium {
         padding-top: calc(55px + 30px);

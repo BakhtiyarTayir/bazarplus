@@ -46,17 +46,17 @@
     </footer>
 
     <div id="footer-bar" class="footer-bar footer-bar-detached">
-        <a href="#">
+        <a href="<?php echo get_home_url(); ?>">
             <span class="fa fa-home" aria-hidden="true"></span>
             <span class="text">Главная</span>
         </a>
-        <a href="https://bazarplus.uz/my-account">
+        <a href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>">
             <span class="fa fa-user icon" aria-hidden="true"></span>
             <span class="text">Мой аккаунт</span>
         </a>
-        <a class="link-dropdown position-relative" href="https://bazarplus.uz/savatcha/">
+        <a class="link-dropdown position-relative" href="<?php echo esc_url( wc_get_cart_url() ); ?>">
             <span class="fa fa-shopping-cart icon"></span>
-            <span class="count">0</span>
+            <span class="count"><?php echo WC()->cart->get_cart_contents_count() ?></span>
             <span class="text">Корзина</span>
         </a>
     </div>
