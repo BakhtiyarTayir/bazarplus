@@ -26,4 +26,5 @@ function bazarplus_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'bazarplus_scripts' );
+
 ?>

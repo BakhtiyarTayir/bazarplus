@@ -105,10 +105,6 @@
         </div>
     </div>
 
-
-
-
-
 	<!-- Custom footer end -->
 </div><!-- #page -->
 

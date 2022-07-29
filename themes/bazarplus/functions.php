@@ -53,7 +53,7 @@ function bazarplus_setup() {
 			'footer-menu' => esc_html__( 'Footer menu', 'bazarplus' ),
 		)
 	);
-
+	
 	/*
 		* Switch default core markup for search form, comment form, and comments
 		* to output valid HTML5.

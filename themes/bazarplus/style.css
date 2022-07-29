@@ -11919,6 +11919,7 @@ a:hover{
     background: #fff;
     padding: 2rem;
     border-radius: 10px;
+    margin-bottom: 30px;
 }
 a, a:hover, a:focus {
     -webkit-transition-duration: 500ms;
