@@ -65,7 +65,7 @@ get_header( 'shop' ); ?>
 													do_action( 'woocommerce_after_add_to_cart_quantity' );
 													?>
 
-													<button type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" class="single_add_to_cart_button button alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+													<button type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" class="single_add_to_cart_button button alt"><?php pll_e('add to cart'); ?></button>
 
 													<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 												</form>
@@ -76,7 +76,7 @@ get_header( 'shop' ); ?>
 							</div>
 							<div class="related-products">
 								<h2 class="product-grid-title mb-5 mt-5">
-									<span>Вам может понравиться</span>
+									<span><?php pll_e('Вам может понравиться'); ?></span>
 								</h2>
 								<div class="row">
 									<?php  

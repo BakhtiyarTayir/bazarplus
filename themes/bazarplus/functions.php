@@ -255,8 +255,8 @@ add_filter('get_the_archive_title', function ($title) {
 add_filter('woocommerce_currency_symbol', 'add_my_currency_symbol', 10, 2);
  
 function add_my_currency_symbol( $currency_symbol, $currency ) {
- 
-     switch( $currency ) {
+
+    switch( $currency ) {
  
          case 'UZS': $currency_symbol = 'сум'; break;
  
@@ -340,6 +340,19 @@ function custom_override_checkout_fields( $fields ) {
 	unset($fields['billing']['billing_email']);
 	return $fields;
 }
+
+// Polylang
+
+add_action('init', function() {
+   pll_register_string('bazarplus', 'Search');
+   pll_register_string('bazarplus', 'add to cart');
+   pll_register_string('bazarplus', 'Вам может понравиться');
+   pll_register_string('bazarplus', 'Категории');
+   pll_register_string('bazarplus', 'Continue');
+   pll_register_string('bazarplus', 'Главная');
+   pll_register_string('bazarplus', 'Мой аккаунт');
+   pll_register_string('bazarplus', 'Корзина');
+});
 
 
 add_filter( 'woocommerce_billing_fields' , 'custom_override_woocommerce_billing_fields' );

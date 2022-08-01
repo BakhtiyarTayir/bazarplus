@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package bazarplus
+ * @package zoodmall
  */
 
 get_header();
@@ -14,16 +14,16 @@ get_header();
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<h1 class="page-title">
+			<header class="page-header container" style="font-size:13px;">
+				<h1 class="page-title" style="text-align: center;">
 					<?php
 					/* translators: %s: search query. */
 					printf( esc_html__( 'Search Results for: %s', 'bazarplus' ), '<span>' . get_search_query() . '</span>' );
 					?>
 				</h1>
 			</header><!-- .page-header -->
-
-			<?php
+			<div class="container" style="display: flex;flex-wrap: wrap;align-content: center;justify-content: center;align-items: center;">
+				<?php
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
@@ -33,9 +33,13 @@ get_header();
 				 * If you want to overload this in a child theme then include a file
 				 * called content-search.php and that will be used instead.
 				 */
-				get_template_part( 'template-parts/content', 'search' );
+				get_template_part( 'template-parts/content-search', 'search' );
 
 			endwhile;
+			?>
+
+		</div>
+			<?php
 
 			the_posts_navigation();
 
@@ -45,9 +49,9 @@ get_header();
 
 		endif;
 		?>
+			
 
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

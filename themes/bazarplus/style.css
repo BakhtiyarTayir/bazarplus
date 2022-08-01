@@ -25,6 +25,13 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ---------------------------------------------------------------- */
+ul {
+    list-style-type: none !important;
+}
+li {
+    list-style-type: none !important;
+}
+
 body {
     font-size: 1rem;
     min-width: 320px;
@@ -11769,7 +11776,7 @@ ul.social-nav {
     font-size: 18px;
 }
 .language-menu select {
-    border: none;
+    border: none !important;
     color: #000;
     background: transparent;
     font-size: 1rem;
@@ -12772,4 +12779,11 @@ button.plus.qib-button {
 
 table.shop_table.woocommerce-checkout-review-order-table thead {
     display: none;
+}
+.category_item::marker {
+    color: #fff;
+}
+section.no-results.not-found {
+    text-align: center;
+    padding: 15px;
 }

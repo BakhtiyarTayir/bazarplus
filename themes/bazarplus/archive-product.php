@@ -42,7 +42,7 @@ get_header( 'shop' );
                 </div>
             </div>
             <section class="mb-5">
-                <h2 class="section-title">Категории</h2>
+                <h2 class="section-title"><?php pll_e('Категории'); ?></h2>
                 <div class="cat-slider owl-carousel">
                     <?php
                         foreach ($termchildren as $child) {

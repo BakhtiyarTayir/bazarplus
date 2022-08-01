@@ -4,32 +4,15 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package bazarplus
+ * @package zoodmall
  */
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php
-			bazarplus_posted_on();
-			bazarplus_posted_by();
-			?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<?php bazarplus_post_thumbnail(); ?>
-
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-		<?php bazarplus_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+							<li class="category_item" style="width: 100%;background-color: #fff;border-radius: 15px;margin: 25px;">
+								<a href="<?php the_permalink(); ?>" style="display: flex;margin: 0 0 10px 10px;align-items: center;">
+									<img src="<?php the_post_thumbnail_url(); ?>" style="width: 150px !important;height: 150px;object-fit: cover;margin-right: 15px;">
+									<h3><b><?php the_title(); ?></b></h3>
+									<hr>
+								</a>
+							</li>

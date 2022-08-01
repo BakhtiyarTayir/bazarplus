@@ -181,7 +181,7 @@ class Widget_HomeBanner extends Widget_Base {
                         </span>
                     </div>
                 </a>
-                <a href="<?php echo wp_kses( $settings['first_link']['url'], array() ); ?>" class="merchant-cat merchant-cat_market"
+                <a href="<?php echo wp_kses( $settings['second_link']['url'], array() ); ?>" class="merchant-cat merchant-cat_market"
                     style="background-image: url(<?php echo wp_kses( $settings['background_image_second']['url'], array() ); ?>)">
                     <div class="merchant-cat-title"><?php echo wp_kses( $settings['second_banner'], array() ); ?>
                         <span class="merchant-cat-arrow">

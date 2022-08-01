@@ -41,7 +41,7 @@
                         <div class="align-self-center">
                             <div class="header-search">
                               <form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ) ?>" class="ec-btn-group-form" >
-									<input autocomplete="off" type="text" class="form-control" name="s" id="s"  value="<?php echo get_search_query() ?>" placeholder="Поиск">
+									<input autocomplete="off" type="text" class="form-control" name="s" id="s"  value="<?php echo get_search_query() ?>" placeholder="<?php pll_e('Search'); ?> ">
 									<button id="searchsubmit" type="submit" class="btn-submit"><i class="fa fa-search"></i></button>
 								</form>
                             </div>
